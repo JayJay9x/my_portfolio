@@ -1,2 +1,6 @@
 # my_portfolio
-My_Resume
+WELCOME TO MY PLACE
+If you have some problems, feel free in touch to me.
+
+-------------------
+For Employers please check my My_Resume
