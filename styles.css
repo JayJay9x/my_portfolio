@@ -71,3 +71,13 @@ body {
 .call-button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+.main-header {
+    background-image: url('http://jayjay9x.github.io/my_portfolio/backgraound.jgp');
+    background-size: cover; /* Make sure the image covers the entire header */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    padding: 20px;
+    text-align: center;
+    color: white; /* Optional: Make text white for contrast */
+}
+
