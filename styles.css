@@ -1,83 +1,79 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #293535;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DO TRUNG HOA - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa theo chiều ngang */
+        }
+        
+        .tableauPlaceholder {
+            display: flex;
+            justify-content: center; /* Căn giữa nội dung embed */
+            width: 100%;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://jayjay9x.github.io/my_portfolio/profile_photo.jpg" alt="Profile Photo" class="profile-photo">
+            <h1>DO TRUNG HOA</h1>
+            <div class="open-to-work">#OPENTOWORK</div>
+        </div>
+        <div class="contact-info">
+            <p>📞 +84 39 652 9995 <a href="tel:+84396529995" class="call-button">Call Me Now </a></p>
+            <p>✉️ trunghoa.works@gmail.com</p>
+            <p>📍 175 Le Loi, Chau Doc, An Giang, Viet Nam.</p>
+            <p>🌐 <a href="https://github.com/JayJay9x">https://github.com/JayJay9x</a></p>
+        </div>
+        <div class="resume-outline">
+            <h2>My Resume/CV Outline</h2>
+            <p>📋 PROFILE</p>
+            <p>🎯 CAREER OBJECTIVE</p>
+            <p>🛠️ SKILLS</p>
+            <p>💼 EXPERIENCE</p>
+            <p>📜 REFERENCE AND ADDITIONAL INFORMATION</p>
+        </div>
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
+        <!-- Embed Tableau here and center it -->
+        <div class='tableauPlaceholder' id='viz1725951508707'>
+            <noscript><a href='#'><img alt='Market of Data Analyst job ' src='https://public.tableau.com/static/images/N2/N2PBF2M42/1_rss.png' style='border: none' /></a></noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='path' value='shared/N2PBF2M42' /> 
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https://public.tableau.com/static/images/N2/N2PBF2M42/1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-GB' />
+            </object>
+        </div>
 
-.header {
-    text-align: center;
-    background-color: #293535;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.profile-photo {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
-
-.open-to-work {
-    background-color: #293535;
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.contact-info {
-    background-color: #087c80;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-}
-
-.job-desiring, .resume-outline {
-    background-color: #139f9f;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.job-desiring h2, .resume-outline h2 {
-    color: #1e88e5;
-}
-.call-button {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-left: 10px;
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease;
-}
-
-.call-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-.main-header {
-    background-image: url('http://jayjay9x.github.io/my_portfolio/backgraound.jgp');
-    background-size: cover; /* Make sure the image covers the entire header */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
-    padding: 20px;
-    text-align: center;
-    color: white; /* Optional: Make text white for contrast */
-}
-
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1725951508707');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if (divElement.offsetWidth > 800) { 
+                vizElement.style.width='1000px';vizElement.style.height='827px';
+            } else if (divElement.offsetWidth > 500) { 
+                vizElement.style.width='1000px';vizElement.style.height='827px';
+            } else { 
+                vizElement.style.width='100%';vizElement.style.height='1027px';
+            }
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+</body>
+</html>
