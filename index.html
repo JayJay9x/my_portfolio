@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ85PJ766Z"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-KQ85PJ766Z');
-    </script>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    <main>
+        <section class="project">
+            <h2>Dự án 1: Xác định xu hướng các Unicorn Firms</h2>
+            <p>Mô tả: Xác định xu hướng các Unicorn Firms và đề ra trung bình hiệu quả đầu tư.</p>
+            <a href="https://colab.research.google.com/drive/1CzY8-lkban67cwmKj4ydmz5XSS-GYmcA?usp=sharing" target="_blank">
+                Xem chi tiết trên Google Colab
+            </a>
+        </section>
 
-    <div class="container">
-        <iframe src="https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?embed=true" 
-                class="iframe-content" allowfullscreen></iframe>
+        <section class="project">
+            <h2>Dự án 2: Hiệu quả của EMA 9 và EMA 21</h2>
+            <p>Mô tả: Hiệu quả của EMA 9 và EMA 21 áp dụng dựa trên chỉ báo RSI.</p>
+            <a href="https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?usp=sharing" target="_blank">
+                Xem chi tiết trên Google Colab
+            </a>
+        </section>
 
-        <h3>Google Sheets Report</h3>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTW8RxNPUH6EStEjEGq1-4MsVRIGaXY72ysEpXDDxWQo4rxvHABwGhhBlklJ5RAsFScxN85dvPBwNnH/pubhtml?widget=true&amp;headers=false" 
-                class="iframe-content"></iframe>
-    </div>
-
-    <!-- Tableau Visualization -->
-    <div class="tableau-container">
-        <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
-        <div class="tableauPlaceholder" id="viz1727000545123">
-            <object class="tableauViz" style="display:none;">
-                <param name="host_url" value="https://public.tableau.com/">
-                <param name="embed_code_version" value="3">
-                <param name="site_root" value="">
-                <param name="name" value="Nize_Spa/Dashboard1">
-                <param name="tabs" value="no">
-                <param name="toolbar" value="yes">
-            </object>
-        </div>
-    </div>
+        <section class="project">
+            <h2>Dự án 3: Sử dụng App Script để Automation</h2>
+            <p>Mô tả: Sử dụng App Script để Automation khâu nhập liệu và truy xuất thông tin dự án.</p>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRO4VLaCFTH-SOQ7qrAPPWdTmXmBMWPt8_KOlpx90KbzBCrwEMlFwES2KxqmMR62yZypAJdqTH1gO_p/pubhtml?widget=true&amp;headers=false" 
+                width="100%" height="500" frameborder="0">
+            </iframe>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
 </body>
 </html>
