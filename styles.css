@@ -1,23 +1,77 @@
-.iframe-content {
-    width: 100%;
-    max-width: 1200px;
-    height: 600px;
-    border: none;
-    margin: 20px auto;
-    display: block;
-    background-color: #ffffff; /* Optional: Nền trắng */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-.tableau-container {
-    margin: 20px auto;
+header {
+    background-color: #ff7f50;
+    color: white;
     text-align: center;
-    padding: 10px;
+    padding: 1rem 0;
 }
 
-.tableauPlaceholder {
-    width: 100%;
-    max-width: 1200px;
-    height: 700px;
-    margin: 0 auto;
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.project {
+    background-color: #fff;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project h2 {
+    color: #ff7f50;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+}
+
+.project p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.project a {
+    display: inline-block;
+    color: #ff7f50;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+iframe {
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
 }
