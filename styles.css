@@ -1,82 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #293535;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
+.iframe-content {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    border: none;
+    margin: 20px auto;
+    display: block;
+    background-color: #ffffff; /* Optional: Nền trắng */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header {
+.tableau-container {
+    margin: 20px auto;
     text-align: center;
-    background-color: #293535;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.profile-photo {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
-
-.open-to-work {
-    background-color: #293535;
-    color: #ffffff;
     padding: 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-top: 10px;
 }
 
-.contact-info {
-    background-color: #087c80;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-}
-
-.job-desiring, .resume-outline {
-    background-color: #139f9f;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.job-desiring h2, .resume-outline h2 {
-    color: #1e88e5;
-}
-.call-button {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-left: 10px;
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease;
-}
-
-.call-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-.main-header {
-    background-image: url('http://jayjay9x.github.io/my_portfolio/backgraound.jgp');
-    background-size: cover; /* Make sure the image covers the entire header */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
-    padding: 20px;
-    text-align: center;
-    color: white; /* Optional: Make text white for contrast */
+.tableauPlaceholder {
+    width: 100%;
+    max-width: 1200px;
+    height: 700px;
+    margin: 0 auto;
 }
