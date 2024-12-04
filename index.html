@@ -116,8 +116,31 @@
 <h3>Using AppsScript to push Entry speed and automating extract data Projects, Customers and Staffs</h3>
           <h4>This embedded project utilizes scripts to streamline data entry and automate the retrieval and management of projects, clients, and personnel. By integrating dynamic functionalities through Google Sheets, the system enhances operational efficiency, ensuring seamless project tracking, client relationship management, and workforce coordination. It serves as a centralized hub for real-time data accessibility, empowering teams with precision and productivity in their workflows.</h4>
  
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRO4VLaCFTH-SOQ7qrAPPWdTmXmBMWPt8_KOlpx90KbzBCrwEMlFwES2KxqmMR62yZypAJdqTH1gO_p/pubhtml?widget=true&amp;headers=false"></iframe>
-        </div>
+       <div id="spreadsheetContainer">
+  <iframe id="spreadsheetFrame" 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRO4VLaCFTH-SOQ7qrAPPWdTmXmBMWPt8_KOlpx90KbzBCrwEMlFwES2KxqmMR62yZypAJdqTH1gO_p/pubhtml?widget=true&amp;headers=false" 
+          style="width: 100%; height: 400px; border: none;">
+  </iframe>
+  <button id="fullscreenButton" onclick="toggleFullscreen()">Fullscreen</button>
+</div>
+
+<script>
+  function toggleFullscreen() {
+    const iframe = document.getElementById('spreadsheetFrame');
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+      iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+      iframe.msRequestFullscreen();
+    } else {
+      alert('Fullscreen not supported in this browser.');
+    }
+  }
+</script>
+
   </section>
 
   <section id="contact" class="contact-section">
