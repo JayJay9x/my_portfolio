@@ -51,9 +51,68 @@
       </div>
       <div class="project">
         <h3>Unicorn Companies Investment Analysis</h3>
-        <iframe src="https://colab.research.google.com/drive/1CzY8-lkban67cwmKj4ydmz5XSS-GYmcA?usp=sharing"></iframe>
-      </div>
-    </div>
+
+<div id="unicorn-analysis">
+  <div>
+    <a href="https://colab.research.google.com/drive/1CzY8-lkban67cwmKj4ydmz5XSS-GYmcA?usp=sharing" target="_blank">View Full Analysis</a>
+  </div>
+  <div id="This embedded project showcases the backtesting results of the Scalping Strategy for October 2024, focusing on cumulative profit performance. The analysis provides insights into identifying trends for the upcoming gold price cycles. By leveraging this strategy, traders and analysts can evaluate the effectiveness of scalping techniques and make data-driven decisions for optimizing future trading approaches." style="display: none;">
+    <p>This project analyzes the dataset of Unicorn Companies to identify potential investment opportunities. Key highlights include data exploration, industry trends, and detailed profitability analysis.</p>
+    <iframe src="https://colab.research.google.com/drive/1CzY8-lkban67cwmKj4ydmz5XSS-GYmcA?usp=sharing" style="width: 100%; height: 400px; border: none;"></iframe>
+  </div>
+  <button id="toggleButton" onclick="toggleContent()">See More</button>
+</div>
+<h3>Cumulative Profit Backtesting - Scalping Strategy (October 2024)</h3>
+
+<div id="scalping-backtest">
+  <div>
+    <a href="https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?usp=sharing" target="_blank">View Full Backtesting</a>
+  </div>
+  <div id="scalpingContent" style="display: none;">
+    <p>
+      This embedded project showcases the backtesting results of the Scalping Strategy for October 2024, focusing on cumulative profit performance. 
+      The analysis provides insights into identifying trends for the upcoming gold price cycles. 
+      By leveraging this strategy, traders and analysts can evaluate the effectiveness of scalping techniques and make data-driven decisions for optimizing future trading approaches.
+    </p>
+    <iframe src="https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?usp=sharing" 
+            style="width: 100%; height: 400px; border: none;">
+    </iframe>
+  </div>
+  <button id="scalpingToggleButton" onclick="toggleScalpingContent()">See More</button>
+</div>
+
+<script>
+  function toggleScalpingContent() {
+    const content = document.getElementById('scalpingContent');
+    const button = document.getElementById('scalpingToggleButton');
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      button.textContent = 'See Less';
+    } else {
+      content.style.display = 'none';
+      button.textContent = 'See More';
+    }
+  }
+</script>
+
+<script>
+  function toggleContent() {
+    const content = document.getElementById('moreContent');
+    const button = document.getElementById('toggleButton');
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      button.textContent = 'See Less';
+    } else {
+      content.style.display = 'none';
+      button.textContent = 'See More';
+    }
+  }
+</script>
+
+    
+
+  <div>https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?usp=sharing</div>
+        </div>
   </section>
 
   <section id="contact" class="contact-section">
