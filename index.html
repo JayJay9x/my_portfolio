@@ -377,43 +377,76 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Contact Popup Modal -->
-    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold text-gray-800">Let's Connect</h3>
-                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <form id="contact-form" class="space-y-4" action="https://docs.google.com/forms/d/e/1FAIpQLSdYH-EXAMPLE-ID/formResponse" method="POST" target="_blank">
-  <div>
-    <label>Name*</label>
-    <input name="entry.1470481340" required class="..." />
+    <!-- ✅ PHẦN FORM ĐÃ CẢI TIẾN -->
+<form id="contact-form" class="space-y-4 animate-fade-in-down bg-gradient-to-br from-white via-blue-50 to-purple-100 p-6 rounded-lg shadow-2xl"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdYH-EXAMPLE-ID/formResponse" method="POST" target="_blank">
+
+  <div class="text-center">
+    <h3 class="text-2xl font-bold text-gray-800 mb-2">
+      ✨ Let's Connect ✨
+    </h3>
+    <p class="text-gray-600 text-sm">Please fill this short form and I'll get back to you shortly!</p>
   </div>
+
   <div>
-    <label>Company</label>
-    <input name="entry.1112121161" class="..." />
+    <label for="popup-name" class="block text-sm font-semibold text-gray-700">Name*</label>
+    <input type="text" name="entry.1470481340" id="popup-name" required
+           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder:text-gray-400">
   </div>
+
   <div>
-    <label>Email*</label>
-    <input type="email" name="entry.2130171239" required class="..." />
+    <label for="popup-company" class="block text-sm font-semibold text-gray-700">Company</label>
+    <input type="text" name="entry.1112121161" id="popup-company"
+           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
   </div>
+
   <div>
-    <label>Phone</label>
-    <input name="entry.1166974658" class="..." />
+    <label for="popup-email" class="block text-sm font-semibold text-gray-700">Email*</label>
+    <input type="email" name="entry.2130171239" id="popup-email" required
+           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
   </div>
+
   <div>
-    <label>Location</label>
-    <input name="entry.1065464570" class="..." />
+    <label for="popup-phone" class="block text-sm font-semibold text-gray-700">Phone</label>
+    <input type="tel" name="entry.1166974658" id="popup-phone"
+           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
   </div>
+
   <div>
-    <label>Message</label>
-    <textarea name="entry.893377160" rows="3" class="..."></textarea>
+    <label for="popup-location" class="block text-sm font-semibold text-gray-700">Location</label>
+    <input type="text" name="entry.1065464570" id="popup-location"
+           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
   </div>
-  <button type="submit">Submit</button>
+
+  <div>
+    <label for="popup-comments" class="block text-sm font-semibold text-gray-700">Message</label>
+    <textarea name="entry.893377160" id="popup-comments" rows="4"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"></textarea>
+  </div>
+
+  <button type="submit"
+          class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-md hover:scale-105 hover:shadow-lg transition font-semibold">
+    <i class="fas fa-paper-plane mr-2"></i> Submit
+  </button>
 </form>
+
+<!-- ✨ Thêm animation nhẹ -->
+<style>
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-down {
+    animation: fade-in-down 0.6s ease-out;
+  }
+</style>
+
 
             </div>
         </div>
