@@ -377,77 +377,43 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- ✅ PHẦN FORM ĐÃ CẢI TIẾN -->
-<form id="contact-form" class="space-y-4 animate-fade-in-down bg-gradient-to-br from-white via-blue-50 to-purple-100 p-6 rounded-lg shadow-2xl"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSdYH-EXAMPLE-ID/formResponse" method="POST" target="_blank">
-
-  <div class="text-center">
-    <h3 class="text-2xl font-bold text-gray-800 mb-2">
-      ✨ Let's Connect ✨
-    </h3>
-    <p class="text-gray-600 text-sm">Please fill this short form and I'll get back to you shortly!</p>
-  </div>
-
-  <div>
-    <label for="popup-name" class="block text-sm font-semibold text-gray-700">Name*</label>
-    <input type="text" name="entry.1470481340" id="popup-name" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder:text-gray-400">
-  </div>
-
-  <div>
-    <label for="popup-company" class="block text-sm font-semibold text-gray-700">Company</label>
-    <input type="text" name="entry.1112121161" id="popup-company"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-email" class="block text-sm font-semibold text-gray-700">Email*</label>
-    <input type="email" name="entry.2130171239" id="popup-email" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-phone" class="block text-sm font-semibold text-gray-700">Phone</label>
-    <input type="tel" name="entry.1166974658" id="popup-phone"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-location" class="block text-sm font-semibold text-gray-700">Location</label>
-    <input type="text" name="entry.1065464570" id="popup-location"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-comments" class="block text-sm font-semibold text-gray-700">Message</label>
-    <textarea name="entry.893377160" id="popup-comments" rows="4"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"></textarea>
-  </div>
-
-  <button type="submit"
-          class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-md hover:scale-105 hover:shadow-lg transition font-semibold">
-    <i class="fas fa-paper-plane mr-2"></i> Submit
-  </button>
-</form>
-
-<!-- ✨ Thêm animation nhẹ -->
-<style>
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in-down {
-    animation: fade-in-down 0.6s ease-out;
-  }
-</style>
-
-
+    <!-- Contact Popup Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">Let's Connect</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="popup-name" class="block text-sm font-medium text-gray-700 mb-1">Name*</label>
+                        <input type="text" id="popup-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="popup-company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                        <input type="text" id="popup-company" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="popup-email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                        <input type="email" id="popup-email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="popup-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input type="tel" id="popup-phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="popup-location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                        <input type="text" id="popup-location" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="popup-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="popup-message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition font-medium">Submit</button>
+                </form>
             </div>
         </div>
     </div>
@@ -522,123 +488,5 @@
             });
         });
     </script>
-    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-10"></div>
-
-    <!-- ✅ FORM CHẶN TRUY CẬP -->
-<div id="gate-modal" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
-  <div class="w-full max-w-lg">
-<!-- ✅ FORM GỌN GÀNG, NỔI BẬT GIỮA TRANG -->
-<form id="contact-form"
-      class="max-w-md mx-auto mt-16 space-y-4 animate-fade-in-down bg-gradient-to-br from-white via-blue-50 to-purple-100 p-6 rounded-lg shadow-2xl"
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZOcRsVtOuQcxIuuCsrANbXWvYtEqQgaxVGLrfLRc3h_Fx9Q/viewform?embedded=true" width="640" height="1400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      method="POST"
-      target="_blank">
-
-  <div class="text-center">
-    <h3 class="text-2xl font-bold text-gray-800 mb-2">
-      ✨ Let's Connect ✨
-    </h3>
-    <p class="text-gray-600 text-sm">
-      🚀 You're about to explore something great! But first, let’s connect — please take a moment to fill out this quick form so I can assist you better.
-    </p>
-  </div>
-
-  <div>
-    <label for="popup-name" class="block text-sm font-semibold text-gray-700">Name*</label>
-    <input type="text" name="entry.1470481340" id="popup-name" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-company" class="block text-sm font-semibold text-gray-700">Company</label>
-    <input type="text" name="entry.1112121161" id="popup-company"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-email" class="block text-sm font-semibold text-gray-700">Email*</label>
-    <input type="email" name="entry.2130171239" id="popup-email" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-phone" class="block text-sm font-semibold text-gray-700">Phone</label>
-    <input type="tel" name="entry.1166974658" id="popup-phone"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-location" class="block text-sm font-semibold text-gray-700">Location</label>
-    <input type="text" name="entry.1065464570" id="popup-location"
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-  </div>
-
-  <div>
-    <label for="popup-comments" class="block text-sm font-semibold text-gray-700">Message</label>
-    <textarea name="entry.893377160" id="popup-comments" rows="4"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"></textarea>
-  </div>
-
-  <button type="submit"
-          class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-md hover:scale-105 hover:shadow-lg transition font-semibold">
-    <i class="fas fa-paper-plane mr-2"></i> Submit
-  </button>
-</form>
-
-<!-- 🎨 Hiệu ứng xuất hiện -->
-<style>
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in-down {
-    animation: fade-in-down 0.6s ease-out;
-  }
-</style>
-
-
-<script>
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-    const action = form.action;
-
-    fetch(action, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: data,
-    }).then(() => {
-      document.getElementById('gate-modal').style.display = 'none';
-      document.getElementById('main-content').classList.remove('hidden');
-    }).catch((error) => {
-      alert("❌ Gửi form không thành công. Vui lòng thử lại.");
-      console.error(error);
-    });
-    return false;
-  }
-</script>
-<audio id="bg-music" autoplay loop>
-  <source src="https://github.com/JayJay9x/my_portfolio/blob/main/Freestyle%20Beat%20-%20RAN%20IT%20UP%20QUICK%20%20Free%20Type%20Beat%202025%20%20Rap%20Trap%20Beat%20Instrumental.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-      <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("bg-music");
-    document.body.addEventListener("click", () => {
-      audio.play();
-    }, { once: true });
-  });
-</script>
-
-
 </body>
-
-
 </html>
