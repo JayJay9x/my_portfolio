@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,32 +17,27 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .hero-pattern {
-            background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 1) 90%);
-        }
-        .animated-underline {
+        .section-divider {
             position: relative;
-            display: inline-block;
+            height: 80px;
+            overflow: hidden;
         }
-        .animated-underline::after {
-            content: '';
+        .section-divider::before {
+            content: "";
             position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: -2px;
             left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
         }
-        .animated-underline:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        .modal-transition {
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-800">
+<body class="bg-gray-50 font-sans">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,15 +46,13 @@
                     <span class="text-xl font-bold gradient-text">My Portfolio</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="resume.html" class="animated-underline font-medium">Review my RESUME</a>
-                    <a href="index.html#projects" class="animated-underline font-medium">Projects</a>
-                    <a href="index.html#contact" class="animated-underline font-medium">Contact</a>
-                    <a href="https://jayjay9x.github.io/my_portfolio/" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">
-                        View Live
-                    </a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                    <a href="#privacy" class="text-gray-700 hover:text-blue-600 transition">Privacy</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                    <a href="https://github.com/JayJay9x/my_portfolio/blob/main/Resume.html" target="_blank" class="text-gray-700 hover:text-blue-600 transition">Resume</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                    <button id="menu-btn" class="text-gray-700">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -70,359 +60,371 @@
         </div>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
-            <a href="resume.html" class="block py-2 font-medium">Review my RESUME</a>
-            <a href="index.html#projects" class="block py-2 font-medium">Projects</a>
-            <a href="index.html#contact" class="block py-2 font-medium">Contact</a>
-            <a href="https://jayjay9x.github.io/my_portfolio/" target="_blank" class="block w-full px-4 py-2 mt-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700 transition duration-300">
-                View Live
-            </a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600 transition">Projects</a>
+            <a href="#privacy" class="block py-2 text-gray-700 hover:text-blue-600 transition">Privacy</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contact</a>
+            <a href="https://github.com/JayJay9x/my_portfolio/blob/main/Resume.html" target="_blank" class="block py-2 text-gray-700 hover:text-blue-600 transition">Resume</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-pattern py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    <span class="gradient-text">Automation & Data Solutions</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-                    Building powerful tools with Google Sheets, Apps Script, Tableau dashboard, n8n automation, cold mail outreach, data enrichment and analysis to streamline your workflows.
-                </p>
-            </div>
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Automation & Data Solutions</h1>
+            <p class="text-xl md:text-2xl mb-8">Transforming workflows through innovative scripting and automation</p>
+            <a href="#projects" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">View My Work</a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Featured Projects -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
-            <section id="projects" class="projects-section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Logistics Performance Dashboard</h3>
-          <h4>This interactive embedded dashboard provides a comprehensive overview of logistics operations. It is designed to evaluate performance metrics and monitor the progress of ongoing projects effectively. The visualization leverages Tableau to offer real-time insights, allowing stakeholders to track key performance indicators (KPIs), identify areas of improvement, and make data-driven decisions to enhance efficiency within the logistics sector.</h4>
-        <div class="embed-content">
-          <div class='tableauPlaceholder' id='viz1733292705670' style='position: relative'><noscript><a href='#'><img alt='Story 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Data_test_17271392550090&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Data_test_17271392550090&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Data_test_17271392550090&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1733292705670');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1200px';vizElement.style.height='1027px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center">
+                        <i class="fas fa-file-excel text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Sugarcreek Concrete</h3>
+                        <p class="text-gray-600 mb-4">Automated workflow solution for concrete finishing jobs with integrated staff management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Google Sheets</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Apps Script</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Automation</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center">
+                        <i class="fas fa-database text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Management System</h3>
+                        <p class="text-gray-600 mb-4">Custom solution for organizing and processing large datasets with automated reporting.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-green-100 to-blue-100 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-green-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Workflow Automation</h3>
+                        <p class="text-gray-600 mb-4">Automated repetitive tasks saving hundreds of hours annually for client operations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Selenium</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">API Integration</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">View Details →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects -->
+            <div class="mt-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Other Projects</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Inventory Management</h3>
+                        <p class="text-gray-600 mb-3">Automated inventory tracking system with real-time updates.</p>
+                        <span class="text-sm text-gray-500">Google Sheets • Apps Script</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Time Tracking Dashboard</h3>
+                        <p class="text-gray-600 mb-3">Custom dashboard for employee time tracking and reporting.</p>
+                        <span class="text-sm text-gray-500">JavaScript • HTML/CSS</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Data Migration Tool</h3>
+                        <p class="text-gray-600 mb-3">Tool for migrating data between different database systems.</p>
+                        <span class="text-sm text-gray-500">Python • SQL</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Report Generator</h3>
+                        <p class="text-gray-600 mb-3">Automated PDF report generation from spreadsheet data.</p>
+                        <span class="text-sm text-gray-500">Google Apps Script • PDF API</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <div class="project">
-        <h3>Spa Branch Performance Report</h3>
-          <h4>This embedded Tableau dashboard delivers an insightful analysis of the business performance for NIZE Spa branches. It focuses on evaluating operational efficiency, uncovering customer lifecycle patterns, and identifying service trends. By leveraging data visualization, this tool empowers stakeholders to make informed decisions, optimize business strategies, and enhance customer satisfaction through a deep understanding of performance metrics and evolving service demands.</h4>
-        <div class='tableauPlaceholder' id='viz1733292801250' style='position: relative'><noscript><a href='#'><img alt='NIZE SPA DASHBOARD ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ni&#47;Nize_Spa&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Nize_Spa&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ni&#47;Nize_Spa&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1733292801250');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='1127px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='1127px';} else { vizElement.style.width='100%';vizElement.style.height='1577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-      </div>
-      <div class="project">
-        <h3>Unicorn Companies Investment Analysis</h3>
-            <!-- Inventory Management -->
-            <div class="flex flex-col md:flex-row items-center mb-16 bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="md:w-1/2 p-6 md:p-10">
-                    <h3 class="text-2xl font-bold mb-4 gradient-text">Inventory Management System</h3>
-                    <p class="text-gray-600 mb-6">
-                        Built on top of Google Sheets with Apps Script, this powerful tool makes inventory management simple and efficient. One of its key features is automatic email notifications upon form submission.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Google Sheets</span>
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Apps Script</span>
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Automation</span>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://raw.githubusercontent.com/JayJay9x/my_portfolio/de28ebd2866441a9ba6545ba522bf5b6cd94c4f1/optimize_inventory_management.gif" 
-                         alt="Inventory Management" 
-                         class="w-full h-auto object-cover">
-                </div>
-            </div>
-            
-            <!-- Google Data Extraction -->
-            <div class="flex flex-col md:flex-row-reverse items-center mb-16 bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="md:w-1/2 p-6 md:p-10">
-                    <h3 class="text-2xl font-bold mb-4 gradient-text">Google Data Extraction</h3>
-                    <ul class="text-gray-600 mb-6 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>Retrieve valuable data from Google results effortlessly</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>Process and manipulate extracted data using spreadsheets</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>Make informed, data-driven decisions with ease</span>
-                        </li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Data Scraping</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Spreadsheets</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Analysis</span>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://raw.githubusercontent.com/JayJay9x/my_portfolio/effcf8576b674c062554a2ac124e16959a1ee2f7/maps_Scraping.gif" 
-                         alt="Google data Extraction" 
-                         class="w-full h-auto object-cover">
-                </div>
-            </div>
-            
-            <!-- Invoicing System -->
-            <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="md:w-1/2 p-6 md:p-10">
-                    <h3 class="text-2xl font-bold mb-4 gradient-text">Fully Functional Invoicing System</h3>
-                    <ul class="text-gray-600 mb-6 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-file-invoice-dollar text-indigo-500 mt-1 mr-2"></i>
-                            <span>Generate professional invoices for your clients</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-cloud-upload-alt text-indigo-500 mt-1 mr-2"></i>
-                            <span>Automatically save them in Google Drive</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-paper-plane text-indigo-500 mt-1 mr-2"></i>
-                            <span>Send invoices seamlessly via Gmail</span>
-                        </li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Invoicing</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Gmail</span>
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Automation</span>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://raw.githubusercontent.com/JayJay9x/my_portfolio/6e67f106adf8c539ab0a59a3978f025911d8c028/Invoice_optimize.gif" 
-                         alt="Invoicing System" 
-                         class="w-full h-auto object-cover">
-                </div>
-            </div>
-        </section>
+    </section>
 
-        <!-- All Projects -->
-        <section id="projects" class="mb-20">
-            <h2 class="text-3xl font-bold mb-10 text-center">Other Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-chart-line text-indigo-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Unicorn Companies Investment Analysis</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Comprehensive analysis of investment opportunities in unicorn companies with data visualization.
+    <!-- Privacy Policy -->
+    <div class="section-divider"></div>
+    <section id="privacy" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Privacy Policy</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">How your data is handled in my automation solutions</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-8">
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">1. Introduction</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            This is the sample page for job on freelancer.com to whom I did for 45$ and am till supporting to now. This Privacy Policy describes how the script and functionalities integrated into the worksheet Sugarcreek_Concrete finish v1 handle data and user interactions. By using this worksheet, you consent to the practices described in this policy.
                         </p>
                     </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-coins text-blue-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Cumulative Profit Backtesting</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Scalping strategy analysis with cumulative profit backtesting for October 2024.
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">2. Scope of Activities</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            The script within the worksheet is specifically designed to:
                         </p>
-                        <a href="https://colab.research.google.com/drive/1OqhEEeJK1QP_QsLbnDVMv_qyQj57Lsdp?usp=sharing" 
-                           target="_blank" 
-                           class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
-                            View on Colab <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                            <li>Record and manage job-related data (e.g., job details, staff assignments)</li>
+                            <li>Perform calculations, updates, and navigation within the workbook</li>
+                            <li>Facilitate smooth data manipulation for the worksheet Sugarcreek_Concrete finish v1</li>
+                        </ul>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            The script operates exclusively within the confines of the Google Sheet and does not interact with any external systems or APIs unless explicitly stated.
+                        </p>
                     </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                <i class="fas fa-robot text-green-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">AppsScript Automation</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Streamline data entry and automate retrieval of projects, customers, and staff data.
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">3. Data Collected</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The script may process:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 mt-2">
+                            <li>Job-related information entered manually into the worksheet</li>
+                            <li>Staff information from the Staffs_WorkID sheet</li>
+                            <li>User inputs required for managing data (e.g., job entries, staff hours)</li>
+                        </ul>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Note: All data remains within the Google Sheet environment and is never transmitted, shared, or stored outside the user's Google Drive.
+                        </p>
+                    </div>
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">4. Purpose of Data Processing</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The script processes data solely for the following purposes:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 mt-2">
+                            <li>Automating workflows within the worksheet</li>
+                            <li>Ensuring data consistency across multiple sheets</li>
+                            <li>Enhancing user experience by reducing manual operations</li>
+                        </ul>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            No personal data is collected, stored, or transmitted outside the worksheet environment.
+                        </p>
+                    </div>
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">5. Access and Sharing</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The script operates with permissions granted through Google Apps Script. Only users with edit access to the worksheet can execute the script. No data is shared with third parties or external services.
+                        </p>
+                    </div>
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">6. Data Security</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The script runs exclusively within Google Sheets, ensuring compliance with Google's security standards. Access to the script is restricted to authorized users of the worksheet.
+                        </p>
+                    </div>
+
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">7. User Rights</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            As a user, you have the right to:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 mt-2">
+                            <li>Modify or delete data within the worksheet</li>
+                            <li>Stop using the script at any time by removing it from the Apps Script editor</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">8. Changes to This Policy</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            This Privacy Policy may be updated to reflect changes in the functionality or scope of the script. Users will be notified of any updates through the worksheet.
                         </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Privacy Policy Section -->
-        <section class="mb-20 bg-white rounded-xl shadow-md overflow-hidden">
-            <div class="p-6 md:p-10">
-                <h2 class="text-3xl font-bold mb-6 gradient-text text-center">Privacy Policy</h2>
-                <div class="prose max-w-none">
-                    <h3 class="text-xl font-semibold mb-3">1. Introduction</h3>
-                    <p class="mb-4">
-                        This is the sample page for job on freelancer.com to whom I did for 45$ and am till supporting to now. This Privacy Policy describes how the script and functionalities integrated into the worksheet Sugarcreek_Concrete finish v1 handle data and user interactions. By using this worksheet, you consent to the practices described in this policy.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">2. Scope of Activities</h3>
-                    <p class="mb-4">
-                        The script within the worksheet is specifically designed to:
-                    </p>
-                    <ul class="list-disc pl-5 mb-4 space-y-2">
-                        <li>Record and manage job-related data (e.g., job details, staff assignments)</li>
-                        <li>Perform calculations, updates, and navigation within the workbook</li>
-                        <li>Facilitate smooth data manipulation for the worksheet Sugarcreek_Concrete finish v1</li>
-                    </ul>
-                    <p class="mb-4">
-                        The script operates exclusively within the confines of the Google Sheet and does not interact with any external systems or APIs unless explicitly stated.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">3. Data Collected</h3>
-                    <p class="mb-4">
-                        The script may process:
-                    </p>
-                    <ul class="list-disc pl-5 mb-4 space-y-2">
-                        <li>Job-related information entered manually into the worksheet</li>
-                        <li>Staff information from the Staffs_WorkID sheet</li>
-                        <li>User inputs required for managing data (e.g., job entries, staff hours)</li>
-                    </ul>
-                    <p class="mb-4">
-                        Note: All data remains within the Google Sheet environment and is never transmitted, shared, or stored outside the user's Google Drive.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">4. Purpose of Data Processing</h3>
-                    <p class="mb-4">
-                        The script processes data solely for the following purposes:
-                    </p>
-                    <ul class="list-disc pl-5 mb-4 space-y-2">
-                        <li>Automating workflows within the worksheet</li>
-                        <li>Ensuring data consistency across multiple sheets</li>
-                        <li>Enhancing user experience by reducing manual operations</li>
-                    </ul>
-                    <p class="mb-4">
-                        No personal data is collected, stored, or transmitted outside the worksheet environment.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">5. Access and Sharing</h3>
-                    <p class="mb-4">
-                        The script operates with permissions granted through Google Apps Script. Only users with edit access to the worksheet can execute the script. No data is shared with third parties or external services.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">6. Data Security</h3>
-                    <p class="mb-4">
-                        The script runs exclusively within Google Sheets, ensuring compliance with Google's security standards. Access to the script is restricted to authorized users of the worksheet.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">7. User Rights</h3>
-                    <p class="mb-4">
-                        As a user, you have the right to:
-                    </p>
-                    <ul class="list-disc pl-5 mb-4 space-y-2">
-                        <li>Modify or delete data within the worksheet</li>
-                        <li>Stop using the script at any time by removing it from the Apps Script editor</li>
-                    </ul>
-                    
-                    <h3 class="text-xl font-semibold mb-3">8. Changes to This Policy</h3>
-                    <p class="mb-4">
-                        This Privacy Policy may be updated to reflect changes in the functionality or scope of the script. Users will be notified of any updates through the worksheet.
-                    </p>
+    <!-- Contact Section -->
+    <div class="section-divider"></div>
+    <section id="contact" class="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl opacity-90">Have a project in mind or need automation solutions? Let's talk!</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 p-10 text-white">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium opacity-80">Email</p>
+                                    <p class="text-lg hovered-element">trunghoa.works@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-globe text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium opacity-80">Website</p>
+                                    <p class="text-lg">https://jayjay9x.github.io/my_portfolio/</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium opacity-80">Location</p>
+                                    <p class="text-lg">Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://jayjay9x.github.io/my_portfolio/" class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/trunghoa11ta/" class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com/trunghoa.88aug/" class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-10 text-gray-700">
+                        <h3 class="text-2xl font-semibold mb-6">Send a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <a href="https://forms.gle/R3VeDxehM5Dgz9QG8" target="_blank" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition font-medium flex items-center justify-center">Send Message via Google Form</a>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-10">
-            <h2 class="text-3xl font-bold mb-8 gradient-text text-center">Get In Touch</h2>
-            <div class="max-w-2xl mx-auto">
-                <form class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-                <div class="mt-10 flex justify-center space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-indigo-600">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-blue-600">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-red-600">
-                        <i class="fab fa-google text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
+                <div class="mb-6 md:mb-0">
                     <span class="text-xl font-bold gradient-text">My Portfolio</span>
-                    <p class="text-gray-400 mt-2">Automation & Data Solutions</p>
+                    <p class="mt-2 text-gray-400">Automation & Data Solutions</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#projects" class="text-gray-300 hover:text-white">Projects</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white">Contact</a>
-                    <a href="https://jayjay9x.github.io/my_portfolio/" target="_blank" class="text-gray-300 hover:text-white">Live Site</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="#privacy" class="text-gray-400 hover:text-white transition">Privacy</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-                <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>© 2023 My Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
         // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
                     // Close mobile menu if open
-                    const menu = document.getElementById('mobile-menu');
-                    if (!menu.classList.contains('hidden')) {
-                        menu.classList.add('hidden');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
                     }
                 }
             });
         });
-
-        // Form submission (example)
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
-                form.reset();
-            });
-        }
     </script>
 </body>
 </html>
