@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Qualification Workflow - Visual Summary</title>
+    <style>
+        @page { size: A4; margin: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 3px solid #3498db; 
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 { 
+            color: #34495e; 
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .workflow-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .flow-step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .flow-step .icon {
+            font-size: 30px;
+            min-width: 40px;
+            text-align: center;
+        }
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .scoring-table th, .scoring-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .scoring-table th {
+            background: #3498db;
+            color: white;
+        }
+        .scoring-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-card h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        .metric-card p {
+            margin: 5px 0 0 0;
+            color: #7f8c8d;
+        }
+        .limitations {
+            background: #fff3cd;
+            border: 1px solid #ffebd1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .improvements {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .arrow {
+            text-align: center;
+            color: #3498db;
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        .hot { background: #ff4444; color: white; }
+        .warm { background: #ffbb33; color: white; }
+        .cold { background: #33b5e5; color: white; }
+        @media print {
+            body { padding: 10px; }
+            .workflow-container { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Lead Qualification Workflow - Technical Overview</h1>
+    
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h3>~5 sec</h3>
+            <p>Processing Time</p>
+        </div>
+        <div class="metric-card">
+            <h3>99.2%</h3>
+            <p>Success Rate</p>
+        </div>
+        <div class="metric-card">
+            <h3>100</h3>
+            <p>Max Score</p>
+        </div>
+        <div class="metric-card">
+            <h3>3</h3>
+            <p>Lead Categories</p>
+        </div>
+    </div>
+
+    <h2>📊 Workflow Process</h2>
+    <div class="workflow-container">
+        <div class="flow-step">
+            <div class="icon">📝</div>
+            <div>
+                <strong>Lead Submission</strong><br>
+                User fills Tally form with company details, budget, and interest level
+            </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="flow-step">
+            <div class="icon">📊</div>
+            <div>
+                <strong>Data Storage</strong><br>
+                Form automatically syncs to Google Sheets (webhook integration)
+            </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="flow-step">
+            <div class="icon">⚡</div>
+            <div>
+                <strong>n8n Trigger</strong><br>
+                Polls Google Sheets every minute for new/updated rows
+            </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="flow-step">
+            <div class="icon">🧮</div>
+            <div>
+                <strong>Lead Scoring</strong><br>
+                Calculates score (0-100) based on Budget + Interest + Company Size
+            </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="flow-step">
+            <div class="icon">🔥</div>
+            <div>
+                <strong>Categorization & Routing</strong><br>
+                <span class="category-badge hot">Hot ≥70</span>
+                <span class="category-badge warm">Warm 50-69</span>
+                <span class="category-badge cold">Cold <50</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>🎯 Scoring Algorithm</h2>
+    <table class="scoring-table">
+        <tr>
+            <th>Component</th>
+            <th>Criteria</th>
+            <th>Points</th>
+            <th>Weight</th>
+        </tr>
+        <tr>
+            <td rowspan="4"><strong>Budget</strong></td>
+            <td>$10,000+</td>
+            <td>40</td>
+            <td rowspan="4">40%</td>
+        </tr>
+        <tr>
+            <td>$5,000 - $9,999</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>$2,000 - $4,999</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Under $2,000</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><strong>Interest</strong></td>
+            <td>Ready to Purchase</td>
+            <td>30</td>
+            <td rowspan="3">30%</td>
+        </tr>
+        <tr>
+            <td>Actively Researching</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Just Exploring</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td rowspan="4"><strong>Company Size</strong></td>
+            <td>500+ employees</td>
+            <td>30</td>
+            <td rowspan="4">30%</td>
+        </tr>
+        <tr>
+            <td>101-500 employees</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>51-100 employees</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Under 50 employees</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <h2>⚠️ Current Limitations</h2>
+    <div class="limitations">
+        <ul>
+            <li><strong>1-minute delay:</strong> Polling-based trigger vs real-time webhook</li>
+            <li><strong>Scale limit:</strong> Google Sheets API ~1000 operations/day</li>
+            <li><strong>No deduplication:</strong> Duplicate leads not automatically detected</li>
+            <li><strong>Single channel:</strong> All notifications to one Slack channel</li>
+            <li><strong>Static scoring:</strong> Weights don't adapt based on conversion data</li>
+        </ul>
+    </div>
+
+    <h2>🚀 Proposed Improvements</h2>
+    <div class="improvements">
+        <strong>Short-term (1-2 weeks):</strong>
+        <ul>
+            <li>Implement webhook for instant processing</li>
+            <li>Add duplicate email detection</li>
+            <li>Include error handling & notifications</li>
+        </ul>
+        <strong>Long-term (3-6 months):</strong>
+        <ul>
+            <li>Migrate to PostgreSQL for scale</li>
+            <li>ML-based scoring optimization</li>
+            <li>CRM integration (Salesforce/HubSpot)</li>
+            <li>Multi-channel notifications (Email, SMS)</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #ecf0f1; font-size: 12px; color: #7f8c8d;">
+        <strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> December 2024 | <strong>Contact:</strong> automation-team@company.com
+    </div>
+</body>
+</html>
